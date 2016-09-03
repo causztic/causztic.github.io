@@ -1,52 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <title>{% if page.title %}{{ page.title }}{% else %}Untitled Post{% endif %}</title>
-</head>
-<body>
-  {% include navigation.html %}
 
-  {% if page.profile %}
-	  {% include profile.html %}
-  {% endif %}
+<article class="post">
+	<header>
+		<h1>{{ page.title }}</h1>
+		<h2 class="headline">{{ page.date | date:"%B %-d, %Y" }}</h2>
+	</header>
+	<section class="content">
+		{{content}}
+	</section>
+</article>
 
-  <section id="wrapper" class="{% if page.profile %}home{% endif %}">
-		<article class="post">
-			<header>
-				<h1>{{ page.title }}</h1>
-				<h2 class="headline">{{ page.date | date:"%B %-d, %Y" }}</h2>
-			</header>
-			<section id="post-body">
-				{{content}}
-			</section>
-		</article>
-		<footer id="post-meta" class="clearfix">
-			<a href="http://twitter.com/{{ site.authorTwitter }}">
-				<div>
-					<span class="dark">{{ site.author }}</span>
-					<span>{{ site.description }}</span>
-				</div>
-			</a>
-		</footer>
-
-		<!-- Archive post list -->
-		{% if page.archive %}
-			<ul id="post-list" class="archive readmore">
-				<h3>Read more</h3>
-				{% for post in site.posts %}
-					<li>
-						<a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">{{ post.title }}<aside class="dates">{{ post.date | date:"%b %d" }}</aside></a>
-					</li>
-				{% endfor %}
-			</ul>
-		{% endif %}
-  </section>
-
-</body>
-</html>
+<!-- Archive post list -->
+{% if page.archive %}
+<ul id="post-list" class="archive readmore">
+  <h3>Read more</h3>
+  {% for post in site.posts %}
+  <li>
+    <a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">{{ post.title }}<aside class="dates">{{ post.date | date:"%b %d" }}</aside></a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+</section>
 
 
