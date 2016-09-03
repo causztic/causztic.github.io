@@ -29,3 +29,16 @@ html
     @include outer-container
     @include span-columns(8)
     @include shift(2)
+
+  footer
+    @include outer-container
+    @include span-columns(8)
+    @include shift(2)
+    p
+      margin-bottom: 2rem
+      &.small
+        display: inline-block
+        font-size: 0.75em
+      &.light
+        font-weight: light
+        color: $light-gray
