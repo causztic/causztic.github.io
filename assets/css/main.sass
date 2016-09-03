@@ -1,0 +1,44 @@
+---
+---
+@import "variables"
+
+@import "bourbon/bourbon"
+@import "base/base"
+@import "neat/neat"
+
+@import "navigation"
+@import "profile"
+@import "posts"
+
+html
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+  background-color: #fdfdfd
+  h1,h2,h3,h4,h5,h6
+    color: $pink
+    &.subheader
+      font-weight: normal
+  body
+    margin-left: 0
+    margin-right: 0
+  a
+    color: $gray
+    &:hover
+      color: $pink
+
+  section.main
+    @include outer-container
+    @include span-columns(8)
+    @include shift(2)
+
+  footer
+    @include outer-container
+    @include span-columns(8)
+    @include shift(2)
+    p
+      margin-bottom: 2rem
+      &.small
+        display: inline-block
+        font-size: 0.75em
+      &.light
+        font-weight: light
+        color: $light-gray

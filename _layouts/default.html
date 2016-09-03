@@ -6,20 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>{{ site.name }}{% if page.title %} - {{ page.title }}{% endif %}</title>
-  <link rel="stylesheet" href="/assets/css/desktop.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
-<h1> COMING SOON! </h1>
-<!--   {% include navigation.html %}
+
+  {% include navigation.html %}
 
   {% if page.profile %}
       {% include profile.html %}
   {% endif %}
 
-  <section id="wrapper" class="{% if page.profile %}home{% endif %}">
+  <section class="main">
     {{ content }}
-  </section> -->
-
+  </section>
+  {% include footer.html %}
 </body>
 </html>
 
