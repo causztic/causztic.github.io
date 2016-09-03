@@ -10,6 +10,11 @@
 @import "profile"
 @import "posts"
 
+.left
+  float: left
+.right
+  float: right
+
 html
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif
   background-color: #fdfdfd
@@ -25,7 +30,7 @@ html
     &:hover
       color: $pink
 
-  section.main
+  section.main, article.post
     @include outer-container
     @include span-columns(8)
     @include shift(2)
