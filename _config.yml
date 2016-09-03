@@ -25,4 +25,7 @@ github_username:  causztic
 
 # Build settings
 markdown: kramdown
-theme: minima
+sass:
+  dir: assets/css
+  sass_dir: assets/css/_sass
+  style: compressed
