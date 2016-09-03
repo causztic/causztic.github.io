@@ -33,6 +33,7 @@ sass:
 gems: [jekyll-paginate]
 paginate: 20
 domain_name: 'http://causztic.com'
+timezone: 'Asia/Singapore'
 
 # Details for the RSS feed generator
 url:            'http://causztic.com'
