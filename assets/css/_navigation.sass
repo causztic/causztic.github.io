@@ -6,6 +6,11 @@ nav
     border-bottom: 1px solid $light-gray
     height: 2rem
     width: 100%
-    text-align: right
+    text-align: left
     padding-right: 2rem
     padding-left: 2rem
+    a:after
+      content: "|"
+      color: $light-gray
+    a:last-child:after
+      content: ""
