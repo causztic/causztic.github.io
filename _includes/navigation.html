@@ -1,6 +1,4 @@
 <nav class="main-nav">
-  {% if page.url != "/" %}
-    <a href="/"> Home </a>
-  {% endif %}
-  <a href="/blog"> Blog </a>
+  <a href="/" class='{% if page.url == "/" %}selected{% endif %}'> Home </a>
+  <a href="/posts" class='{% if page.url == "/posts/" %}selected{% endif %}'> Blog </a>
 </nav>

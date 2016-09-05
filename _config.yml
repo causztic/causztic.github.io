@@ -32,7 +32,7 @@ sass:
 
 gems: [jekyll-paginate]
 paginate: 20
-paginate_path: /blog/page:num/
+paginate_path: /posts/page:num/
 domain_name: 'http://causztic.com'
 timezone: 'Asia/Singapore'
 
@@ -41,4 +41,4 @@ url:            'http://causztic.com'
 author:         'yaojie'
 authorTwitter:  'causztic'
 
-permalink:       /:year/:title/
+# permalink:       /:year/:title/

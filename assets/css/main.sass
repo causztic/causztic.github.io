@@ -23,22 +23,53 @@ html
     &.subheader
       font-weight: normal
   body
-    margin-left: 0
-    margin-right: 0
+    @media screen and (min-width: 40em)
+      margin-left: 0
+      margin-right: 0
   a
+    &.selected
+      font-weight: bold
     color: $gray
     &:hover
       color: $pink
 
+  .box
+    &.double
+      @include span-columns(6 of 9)
+      margin-right: 0
+    a
+      color: $pink
+    display: flex
+    flex-direction: column
+    @include outer-container
+    @include span-columns(3 of 9)
+    margin-bottom: 1rem
+    h1
+      margin-bottom: 1rem
+    border: solid 1px $light-gray
+    padding: 1rem
+
+    @media screen and (max-width: 40em)
+      @include span-columns(12)
+      h1
+        text-align: center
+    .language
+      font-weight: lighter
+      color: $gray
+      font-size: 0.75em
+
   section.main, article.post
     @include outer-container
-    @include span-columns(8)
-    @include shift(2)
+    @include span-columns(12)
+    @media screen and (min-width: 40em)
+      @include span-columns(9)
+      @include shift(2)
 
   footer
     @include outer-container
-    @include span-columns(8)
-    @include shift(2)
+    @media screen and (min-width: 40em)
+      @include span-columns(9)
+      @include shift(2)
     p
       margin-bottom: 2rem
       &.small
