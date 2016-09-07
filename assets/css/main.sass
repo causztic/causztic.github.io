@@ -34,9 +34,10 @@ html
       color: $pink
 
   .box
-    &.double
-      @include span-columns(6 of 9)
-      margin-right: 0
+    @media screen and (min-width: 40em)
+      &.double
+        @include span-columns(6 of 9)
+        margin-right: 0
     a
       color: $pink
     display: flex
@@ -60,13 +61,17 @@ html
 
   section.main, article.post
     @include outer-container
-    @include span-columns(12)
+    @include span-columns(10)
+    @include shift(1)
     @media screen and (min-width: 40em)
       @include span-columns(9)
       @include shift(1.5)
 
   footer
     @include outer-container
+    @include span-columns(10)
+    @include shift(1)
+
     @media screen and (min-width: 40em)
       @include span-columns(9)
       @include shift(1.5)
