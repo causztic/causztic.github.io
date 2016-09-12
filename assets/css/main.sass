@@ -26,7 +26,7 @@ html
     &.subheader
       font-weight: normal
   body
-    @media screen and (min-width: 40em)
+    @media screen and (min-width: 768px)
       margin-left: 0
       margin-right: 0
   a
@@ -37,26 +37,20 @@ html
       color: $pink
 
   .box
-    @media screen and (min-width: 40em)
-      &.double
-        @include span-columns(6 of 9)
-        margin-right: 0
+    @include outer-container
+    margin-bottom: 1rem
+    &.half
+      @include span-columns(4.5 of 9)
+    .title
+      @include span-columns(3 of 9)
+    .content
+      @include span-columns(6 of 9)
     a
       color: $pink
-    display: flex
-    flex-direction: column
-    @include outer-container
-    @include span-columns(3 of 9)
-    margin-bottom: 1rem
     h1
       margin-bottom: 1rem
     border: solid 1px $light-gray
     padding: 1rem
-
-    @media screen and (max-width: 40em)
-      @include span-columns(12)
-      h1
-        text-align: center
     .language
       font-weight: lighter
       color: $gray
@@ -69,7 +63,7 @@ html
     @include outer-container
     @include span-columns(10)
     @include shift(1)
-    @media screen and (min-width: 40em)
+    @media screen and (min-width: 768px)
       @include span-columns(9)
       @include shift(1.5)
 
@@ -78,7 +72,7 @@ html
     @include span-columns(10)
     @include shift(1)
 
-    @media screen and (min-width: 40em)
+    @media screen and (min-width: 768px)
       @include span-columns(9)
       @include shift(1.5)
     p
