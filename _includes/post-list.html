@@ -1,7 +1,7 @@
 <ul class="posts">
   {% for post in paginator.posts %}
   <li>
-    <a class="title" href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">{{ post.title }}</a>
+    <a class="title {% if post.title == '' %}untitled{% endif %}" href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">{{ post.title }}</a>
     <aside class="date">{{ post.date | date:"%B %-d" }}</aside>
     <div class="content">
       {{ post.content }}

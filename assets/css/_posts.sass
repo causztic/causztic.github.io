@@ -8,6 +8,11 @@ ul.posts
     color: $pink
     &:hover
       color: $gray
+      cursor: pointer
+    &.untitled:after
+      text-transform: uppercase
+      content: "untitled"
+      color: lighten($pink, 20%)
   .date
     margin-bottom: 1em
     color: $gray
