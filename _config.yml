@@ -16,7 +16,7 @@
 name: yaojie
 email: limyaojie93@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  I do NodeJS, Redux/React, RoR for fast prototyping and development!
+  I do RoR, NodeJS, Redux/React for fast prototyping and development!
 
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: http://causztic.com # the base hostname & protocol for your site
