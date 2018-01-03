@@ -18,6 +18,10 @@ ul.posts
     color: $gray
 
 ul.posts .content, article.post .content
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
   margin-bottom: 2rem
   ul > li > ul
     font-weight: lighter
@@ -28,6 +32,8 @@ ul.posts .content, article.post .content
       margin-left: 1em
   a
     color: $pink
+  p
+    width: 100%
 
 article.post
   margin-top: 2rem
