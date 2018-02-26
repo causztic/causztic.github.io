@@ -5,4 +5,4 @@ And in the meantime, use this for portfolio and projects!
 And blog posts.
 
 ## Stuff used
-SASS, Jekyll, Bitters, Neat, Bourbon
+SASS, Jekyll, Bulma
