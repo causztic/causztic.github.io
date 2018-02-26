@@ -21,20 +21,3 @@
   url: http://www.travelshopa.com
   content: <p>Travelshopa is a website for users to discover fashion and shopping in little-known places. Converted the site from Wordpress to a full-fledged Ruby on Rails application, with updated design and added features.</p>
             <p>Fun client to work with! The website also appeared on The Business Times so I'm rather happy with that.</p>
-
-- title: Moray
-  skills: [Ruby on Rails, Android]
-  url: http://devpost.com/software/moray
-  content: <p> This was my team's entry for Fishackathon 2016. </p>
-          <p>
-            The International Fishery Data Standard (IFDS) was designed by us in an attempt to consolidate and unify various data fields by fisheries around the world, which will be stored in a central server/database for everyone to utilize.
-          </p>
-          <p> We placed third in the Singapore Round! </p>
-
-- title: QodLab
-  skills: [Django, AngularJS]
-  content: <p>
-            A more targeted web solution for programming education; Various metrics and unit testing is done on the students' answers and are compared with others. Proposed to be used by our school for curriculum activities.
-          </p>
-          <p>Upgraded the site's frontend from Angular1 to 2 and added some features along the way!
-          </p>

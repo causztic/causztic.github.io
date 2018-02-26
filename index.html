@@ -26,4 +26,25 @@ profile: true
         </span>
       </div>
   {% endfor %}
+  <div class="column is-half">
+    {% for project in site.data.mini_projects %}
+      <div class="mini-project">
+        {% if project.url %}
+          <a href={{ project.url }}>
+            <h1>{{ project.title }}</h1>
+          </a>
+        {% else %}
+          <h1>{{ project.title }}</h1>
+        {% endif %}
+        <div class="content">
+            {{ project.content }}
+        </div>
+        <span class="skills">
+          {% for skill in project.skills %}
+            <span class="skill tag">{{ skill }}</span>
+          {% endfor %}
+        </span>
+      </div>
+    {% endfor %}
+  </div>
 </div>
