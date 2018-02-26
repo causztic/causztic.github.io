@@ -6,8 +6,8 @@ profile: true
 <div class="columns is-multiline is-centered">
   {% for project in site.data.projects %}
       <div class="column is-half">
-        <h1>{{ project.title }}</h1>
         <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src={{ project.data-src }}>
+        <h1>{{ project.title }}</h1>
         <div class="content">
           {{ project.content }}
         </div>
