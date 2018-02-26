@@ -6,8 +6,16 @@ profile: true
 <div class="columns is-multiline is-centered">
   {% for project in site.data.projects %}
       <div class="column is-half">
-        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src={{ project.data-src }}>
-        <h1>{{ project.title }}</h1>
+        {% if project.data-src %}
+          <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src={{ project.data-src }}>
+        {% endif %}
+        {% if project.url %}
+          <a href={{ project.url }}>
+            <h1>{{ project.title }}</h1>
+          </a>
+        {% else %}
+          <h1>{{ project.title }}</h1>
+        {% endif %}
         <div class="content">
           {{ project.content }}
         </div>

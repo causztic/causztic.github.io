@@ -1,6 +1,7 @@
 - title: Qubida Analytics
   skills: [AngularJS, D3.js, NodeJS, MongoDB]
   data-src: http://cdn.causztic.com/qubida.png 
+  url: http://www.qubida.com
   content: <p> Refactored and redesigned their analysis visualizations to handle multiple dimensions and measures across multiple chart types.
         Redesigned their dashboards to handle cross filtering and more user-friendly.
         Also implemented pipelines so that the product deployments to our clients can be pushed by a single command. All tests and logging
