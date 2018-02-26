@@ -1,6 +1,7 @@
 ---
 ---
 @import "bulma/utilities/_all"
+@import "bulma/base/_all"
 @import "bulma/layout/_all"
 @import "bulma/elements/_all"
 
@@ -12,7 +13,6 @@
 @import "navigation"
 @import "profile"
 @import "posts"
-@import "projects"
 
 .left
   float: left
@@ -62,3 +62,12 @@ html
       &.light
         font-weight: light
         color: $light-gray
+  .columns .column
+    @media (max-width: $desktop)
+      padding: 50px
+      
+    .content
+      padding: 1em 0
+  
+  .content figure
+    text-align: left

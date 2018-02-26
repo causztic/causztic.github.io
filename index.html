@@ -3,14 +3,19 @@ layout: default
 profile: true
 ---
 
-<ul class="projects">
+<div class="columns is-multiline is-centered">
   {% for project in site.data.projects %}
-  <li class="project-item">
-    <h1>{{ project.title }}</h1>
-    <p>{{ project.content }}</p>
-    <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src={{ project.data-src }}>
-    {{ project.skills }}
-    <hr/>
-  </li>
+      <div class="column is-half">
+        <h1>{{ project.title }}</h1>
+        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src={{ project.data-src }}>
+        <div class="content">
+          {{ project.content }}
+        </div>
+        <span class="skills">
+          {% for skill in project.skills %}
+            <span class="skill tag">{{ skill }}</span>
+          {% endfor %}
+        </span>
+      </div>
   {% endfor %}
-</ul>
+</div>
