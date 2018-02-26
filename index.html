@@ -19,11 +19,11 @@ profile: true
         <div class="content">
           {{ project.content }}
         </div>
-        <span class="skills">
+        <div class="tags">
           {% for skill in project.skills %}
             <span class="skill tag">{{ skill }}</span>
           {% endfor %}
-        </span>
+        </div>
       </div>
   {% endfor %}
   <div class="column is-half">
@@ -39,11 +39,11 @@ profile: true
         <div class="content">
             {{ project.content }}
         </div>
-        <span class="skills">
+        <div class="tags">
           {% for skill in project.skills %}
             <span class="skill tag">{{ skill }}</span>
           {% endfor %}
-        </span>
+        </div>
       </div>
     {% endfor %}
   </div>
