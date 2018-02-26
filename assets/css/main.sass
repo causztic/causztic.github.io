@@ -2,13 +2,10 @@
 ---
 @import "variables"
 
-@import "bourbon/bourbon"
-@import "base/base"
-@import "neat/neat"
-
 @import "navigation"
 @import "profile"
 @import "posts"
+@import "projects"
 
 .left
   float: left
@@ -50,21 +47,8 @@ html
     margin: 1em calc(50% - 50vw)
 
   section.main, article.post
-    @include outer-container
-    @include span-columns(10)
-    @include shift(1)
-    @media screen and (min-width: 768px)
-      @include span-columns(9)
-      @include shift(1.5)
 
   footer
-    @include outer-container
-    @include span-columns(10)
-    @include shift(1)
-
-    @media screen and (min-width: 768px)
-      @include span-columns(9)
-      @include shift(1.5)
     p
       margin-bottom: 2rem
       &.small

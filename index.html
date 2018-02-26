@@ -5,10 +5,11 @@ profile: true
 
 <ul class="projects">
   {% for project in site.data.projects %}
-  <li>
+  <li class="project-item">
     <h1>{{ project.title }}</h1>
     <p>{{ project.content }}</p>
     <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src={{ project.data-src }}>
+    {{ project.skills }}
     <hr/>
   </li>
   {% endfor %}
