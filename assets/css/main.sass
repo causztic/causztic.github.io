@@ -43,32 +43,7 @@ html
     text-align: center
     width: 100%
     margin: 1em 0 2em 0
-  .box
-    @include outer-container
-    margin-bottom: 1rem
-    .title, .content
-      @include span-columns(9 of 9)
 
-    @media screen and (min-width: 768px)
-      &.half
-        @include span-columns(4.5 of 9)
-      .title
-        @include span-columns(3 of 9)
-      .content
-        @include span-columns(6 of 9)
-    a
-      color: $pink
-    h1
-      margin-bottom: 1rem
-    border: solid 1px $light-gray
-    padding: 1rem
-    .language
-      font-weight: lighter
-      color: $gray
-      font-size: 0.75em
-
-  .project-image
-    border: solid 1px $gray
   .horizontal-gallery
     display: flex
     overflow: auto
