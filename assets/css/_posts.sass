@@ -1,9 +1,6 @@
 @import "variables"
 
 ul.posts
-  @media (max-width: $desktop)
-    padding: 50px
-    
   .title
     display: inline-block
     min-height: 2rem
@@ -45,3 +42,12 @@ article.post
       font-size: 2.5em
     h2
       font-size: 1.5em
+
+ul.posts, .post-container
+  display: flex
+  flex-direction: column
+  align-items: center
+  @media (max-width: $desktop)
+    padding: 50px
+article.post, ul.posts li
+  max-width: 960px

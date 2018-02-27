@@ -23,6 +23,7 @@ html
   img
     max-height: 400px
     height: auto
+    width: auto
 
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif
   background-color: #fdfdfd
@@ -54,6 +55,7 @@ html
     margin: 1em calc(50% - 50vw)
 
   footer
+    text-align: center
     p
       margin-bottom: 2rem
       &.small
@@ -62,14 +64,17 @@ html
       &.light
         font-weight: light
         color: $light-gray
+      
+  
   .columns .column
-    @media (max-width: $desktop)
-      padding: 50px
     img
-      height: 300px
+      max-height: 300px
     .content
       padding: 1em 0 0.5em 0
-  
+
+    @media (max-width: $desktop)
+      padding: 50px
+
   .content figure
     text-align: left
 
