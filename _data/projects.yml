@@ -1,6 +1,11 @@
+- title: Hear65
+  skills: [Ruby on Rails, React]
+  data-src: http://cdn.causztic.com/hear65.png
+  url: http://www.hear65.com
+  content: <p>In order to bring more exposure to Singapore music, Hear65 was one of the initiatives to allow people to explore, listen to, and review music by Singaporean artistes.</p>
 - title: Qubida Analytics
   skills: [AngularJS, D3.js, NodeJS, MongoDB]
-  data-src: http://cdn.causztic.com/qubida.png 
+  data-src: http://cdn.causztic.com/qubida.png
   url: http://www.qubida.com
   content: <p> Refactored and redesigned their analysis visualizations to handle multiple dimensions and measures across multiple chart types.
         Redesigned their dashboards to handle cross filtering and more user-friendly.
