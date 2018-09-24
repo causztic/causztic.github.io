@@ -1,6 +1,6 @@
 <ul class="posts columns is-multiline is-centered">
   {% for post in paginator.posts %}
-  <li class="column">
+  <li class="column is-12">
     <a class="title {% if post.title == '' %}untitled{% endif %}" href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">{{ post.title }}</a>
     <aside class="date">
         {% capture pageyear %}{{ post.date | date: '%Y' }}{% endcapture %}
