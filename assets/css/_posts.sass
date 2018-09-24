@@ -18,6 +18,10 @@ ul.posts
     color: $gray
 
 ul.posts .content, article.post .content
+  justify-content: center
+  align-items: center
+  display: flex
+  flex-direction: column
   margin-bottom: 2rem
   ul > li > ul
     font-weight: lighter
@@ -31,6 +35,8 @@ ul.posts .content, article.post .content
   p
     width: 100%
 
+.post-container
+  width: 960px
 article.post
   margin-top: 2rem
   header
