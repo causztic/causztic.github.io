@@ -15,9 +15,9 @@
 #           <p>Upgraded the site's frontend from Angular1 to 2 and added some features along the way!
 #           </p>
 - title: reol-chan
-  skills: [NodeJS]
+  skills: [NodeJS, Redis]
   url: http://www.github.com/causztic/reol-chan
   content: <p>
             Created a bot for my discord server. It routinely scrapes Twitter and Instagram for latest posts, and posts them on the discord channel.
-            It also supports music playback from Youtube.
+            It also supports miscellaneous commands like music playback from Youtube and message filtering.
           </p>
