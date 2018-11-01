@@ -13,7 +13,22 @@ aside.column.menu
   a.menu-item
     display: block
 
+.mobile-navigation
+  text-align: center
+  .menu-items
+    background-color: #fbfbfb
+    display: flex
+    justify-content: space-around
+
+.page-title
+  display: none
+  font-weight: bold
+
 @media (min-width: 40.0rem)
+  .mobile-navigation
+    display: none
+  .page-title
+    display: block
   aside.menu.column
     display: flex
 
