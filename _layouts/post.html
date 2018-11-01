@@ -5,11 +5,12 @@
 <body>
   <div class="container">
     <div class="row">
-      <aside class="menu column column-25">
+      {% include mobile_navigation.html %}
+      <aside class="menu column">
         {% include navigation.html %}
         {% include footer.html %}
       </aside>
-      <div class="content column column-75 column-offset-25">
+      <div class="content column">
         <article class="post">
           <header>
             <h1 class={% if page.title == '' %}untitled{% endif %}>{{ page.title }}</h1>
