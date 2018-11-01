@@ -1,18 +1,14 @@
 ---
 ---
-@import "bulma/utilities/_all"
-@import "bulma/base/_all"
-@import "bulma/layout/_all"
-@import "bulma/elements/_all"
-
-@import "bulma/grid/columns"
-@import "bulma/components/pagination"
+@import "milligram/milligram"
 
 @import "variables"
 
 @import "navigation"
 @import "profile"
 @import "posts"
+@import "tags"
+@import "content"
 
 .left
   float: left
@@ -20,28 +16,35 @@
   float: right
 
 html
-  img
-    max-height: 400px
-    height: auto
-    width: auto
-
-  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
-  background-color: #fdfdfd
   h1,h2,h3,h4,h5,h6
+    font-weight: normal
     color: $pink
     &.subheader
       font-weight: normal
   body
-    @media screen and (min-width: 768px)
-      margin-left: 0
-      margin-right: 0
+    font-weight: 400
+    min-width: 100vw
+    overflow-x: hidden
+  img
+    max-height: 400px
+    height: auto
+    width: auto
   a
     word-wrap: break-word
     &.selected
       font-weight: bold
-    color: $gray
+    color: $green
     &:hover
-      color: $pink
+      color: $dark-green
+  footer
+    p
+      margin-bottom: 2rem
+      &.small
+        display: inline-block
+        font-size: 0.75em
+      &.light
+        font-weight: light
+        color: $light-gray
 
   i.image-caption
     display: block
@@ -54,30 +57,13 @@ html
     display: flex
     overflow: auto
     margin: 1em calc(75% - 75vw)
+    &.fixed
+      img
+        max-height: 200px
 
-  footer
-    text-align: center
-    p
-      margin-bottom: 2rem
-      &.small
-        display: inline-block
-        font-size: 0.75em
-      &.light
-        font-weight: light
-        color: $light-gray
-
-
-  .columns .column
-    img
-      max-height: 300px
-    .content
-      padding: 1em 0 0.5em 0
-
-    @media (max-width: $desktop)
-      padding: 50px
-
-  .content figure
-    text-align: left
+  .content
+    figure
+      text-align: left
 
   h1
     font-weight: bolder

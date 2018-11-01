@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% include head.html %}
+{% include head.html %}
+
 <body>
-
-  {% include navigation.html %}
-
-  {% if page.profile %}
-      {% include profile.html %}
-  {% endif %}
-
   <div class="container">
-    {{ content }}
-    {% include footer.html %}
+    <div class="row">
+      <aside class="menu column">
+        {% include navigation.html %}
+        {% include footer.html %}
+      </aside>
+      <div class="content column">
+        {{ content }}
+      </div>
+    </div>
   </div>
 </body>
+
 </html>
-
-
-

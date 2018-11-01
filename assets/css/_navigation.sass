@@ -1,18 +1,31 @@
 @import "variables"
 
-nav
-  &.main-nav
-    background-color: white
-    border-bottom: 1px solid $light-gray
-    height: 2rem
-    width: 100%
-    text-align: center
-    @media screen and (min-width: 768px)
-      text-align: left
-    padding-right: 2rem
-    padding-left: 2rem
-    a:after
-      content: "|"
-      color: $light-gray
-    a:last-child:after
-      content: ""
+aside.column.menu
+  display: none
+  background-color: #fbfbfb
+  position: fixed
+  padding-left: 2rem
+  left: 5%
+  top: 0
+  height: 100vh
+  flex-direction: column
+  justify-content: space-around
+  a.menu-item
+    display: block
+
+@media (min-width: 40.0rem)
+  aside.menu.column
+    display: flex
+
+/* Larger than tablet screen */
+@media (min-width: 80.0rem)
+  aside.menu.column
+    flex: 0 0 25%
+    max-width: 25%
+
+  .content.column
+    flex: 0 0 75%
+    max-width: 75%
+    position: absolute
+    z-index: -1
+    left: 25%

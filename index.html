@@ -1,50 +1,46 @@
 ---
 layout: default
-profile: true
 ---
 
-<div class="columns is-multiline is-centered">
-  {% for project in site.data.projects %}
-      <div class="column is-half">
-        {% if project.data-src %}
-          <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src={{ project.data-src }}>
-        {% endif %}
-        {% if project.url %}
-          <a href={{ project.url }}>
-            <h1>{{ project.title }}</h1>
-          </a>
-        {% else %}
-          <h1>{{ project.title }}</h1>
-        {% endif %}
-        <div class="content">
-          {{ project.content }}
-        </div>
-        <div class="tags">
-          {% for skill in project.skills %}
-            <span class="skill tag">{{ skill }}</span>
-          {% endfor %}
-        </div>
-      </div>
-  {% endfor %}
-  <div class="column is-half">
-    {% for project in site.data.mini_projects %}
-      <div class="mini-project">
-        {% if project.url %}
-          <a href={{ project.url }}>
-            <h1>{{ project.title }}</h1>
-          </a>
-        {% else %}
-          <h1>{{ project.title }}</h1>
-        {% endif %}
-        <div class="content">
-            {{ project.content }}
-        </div>
-        <div class="tags">
-          {% for skill in project.skills %}
-            <span class="skill tag">{{ skill }}</span>
-          {% endfor %}
-        </div>
-      </div>
-    {% endfor %}
+
+<h2>Projects</h2>
+{% for project in site.data.projects %}
+  <div class="project">
+    <!-- {% if project.data-src %}
+        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src={{ project.data-src }}>
+      {% endif %} -->
+    <h3>{{ project.title }}</h3>
+    {% if project.url %}
+    <a href={{ project.url }}>{{project.url }}</a>
+    {% endif %}
+    <div class="content">
+      {{ project.content }}
+    </div>
+    <div class="tags">
+      {% for skill in project.skills %}
+      <span class="skill tag">{{ skill }}</span>
+      {% endfor %}
+    </div>
   </div>
+{% endfor %}
+<hr/>
+{% for project in site.data.mini_projects %}
+  <div class="mini-project">
+    {% if project.url %}
+      <a href={{ project.url }}>
+        <h2>{{ project.title }}</h2>
+      </a>
+    {% else %}
+      <h2>{{ project.title }}</h2>
+    {% endif %}
+    <div class="content">
+      {{ project.content }}
+    </div>
+    <div class="tags">
+      {% for skill in project.skills %}
+        <span class="skill tag">{{ skill }}</span>
+      {% endfor %}
+    </div>
+  </div>
+{% endfor %}
 </div>
