@@ -9,7 +9,7 @@ ruby '2.5.0'
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem 'jekyll', '3.2.1'
+gem 'jekyll', '>= 3.6.3'
 gem 'jekyll-paginate'
 gem 'jekyll-seo-tag'
 

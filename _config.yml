@@ -30,7 +30,7 @@ sass:
   sass_dir: assets/css
   style: compressed
 
-gems: [jekyll-paginate, jekyll-seo-tag]
+plugins: [jekyll-paginate, jekyll-seo-tag]
 paginate: 20
 paginate_path: /posts/page:num/
 domain_name: 'http://causztic.com'
