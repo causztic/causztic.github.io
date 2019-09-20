@@ -16,25 +16,23 @@ tags: ["code", "ruby"]
 <ul>
   <li><b>gem install devise-jwt</b></li>
   <li>update <b>devise.rb</b> for devise-jwt. Basically just follow their README and update accordingly.</li>
-  <li>
-    <pre>
-      <code>
-        config.jwt do |jwt|
-          jwt.secret = Rails.application.credentials.secret_key_base
-          jwt.expiration_time = 1.year.to_i
-          jwt.request_formats = { user: [:json] }
+  <pre>
+    <code>
+      config.jwt do |jwt|
+        jwt.secret = Rails.application.credentials.secret_key_base
+        jwt.expiration_time = 1.year.to_i
+        jwt.request_formats = { user: [:json] }
 
-          jwt.dispatch_requests = [
-            ['POST', %r{^/api/v1/auth/sign_in$}],
-            ['GET', %r{^/api/v1/users/confirmation}],
-          ]
-          jwt.revocation_requests = [
-            ['DELETE', %r{^/api/v1/auth/sign_out$}]
-          ]
-        end
-      </code>
-    </pre>
-  </li>
+        jwt.dispatch_requests = [
+          ['POST', %r{^/api/v1/auth/sign_in$}],
+          ['GET', %r{^/api/v1/users/confirmation}],
+        ]
+        jwt.revocation_requests = [
+          ['DELETE', %r{^/api/v1/auth/sign_out$}]
+        ]
+      end
+    </code>
+  </pre>
   <li>
     Update routes..
     <pre>
