@@ -1,0 +1,112 @@
+---
+layout: post
+title: Devise JWT with Sessions Hybrid
+date: 2019-09-20 18:00:00.000000000 +08:00
+type: post
+published: true
+status: publish
+categories: []
+tags: ["code", "ruby"]
+---
+
+<p>
+  So here's the deal: we wanted to create a shared authentication platform with Devise for both API and non-API (vanilla website) usage.
+  For the API, we needed a jwt implementation, so:
+</p>
+<ul>
+  <li><b>gem install devise-jwt</b></li>
+  <li>update <b>devise.rb</b> for devise-jwt. Basically just follow their README and update accordingly.</li>
+  <li>
+    <pre>
+      <code>
+        config.jwt do |jwt|
+          jwt.secret = Rails.application.credentials.secret_key_base
+          jwt.expiration_time = 1.year.to_i
+          jwt.request_formats = { user: [:json] }
+
+          jwt.dispatch_requests = [
+            ['POST', %r{^/api/v1/auth/sign_in$}],
+            ['GET', %r{^/api/v1/users/confirmation}],
+          ]
+          jwt.revocation_requests = [
+            ['DELETE', %r{^/api/v1/auth/sign_out$}]
+          ]
+        end
+      </code>
+    </pre>
+  </li>
+  <li>
+    Update routes..
+    <pre>
+      <code>
+        namespace :api do
+          namespace :v1 do
+            devise_scope :user do
+              post 'auth/sign_in', to: 'sessions#create'
+              delete 'auth/sign_out', to: 'sessions#destroy'
+            end
+          end
+        end
+      </code>
+    </pre>
+  </li>
+  <li>
+    Update <b>Api::V1::SessionsController</b>. We also needed to return extra information on successful login, so we also overrode the <b>respond_with</b> method.
+    <pre>
+      <code>
+        class Api::V1::SessionsController < Devise::SessionsController
+          protect_from_forgery prepend: true
+          skip_before_action :verify_authenticity_token
+          respond_to :json
+
+          private
+
+          def respond_with(resource, _opts = {})
+            if resource.email && resource.type
+              render json: { data: { email: resource.email, type: resource.type.downcase } }
+            else
+              head :unauthorized
+            end
+          end
+
+          def respond_to_on_destroy
+            head :ok
+          end
+        end
+      </code>
+    </pre>
+  </li>
+</ul>
+<p>
+  Here comes the ceveat!<br/>
+  <a href="https://github.com/waiting-for-dev/devise-jwt#session-storage-caveat">https://github.com/waiting-for-dev/devise-jwt#session-storage-caveat</a><br/>
+  We had to either disable <b>session_storage</b> or <b>database_authenticatable</b>, which were not very feasible options if we were to also allow session-based logins for the website.
+  <ol>
+    <li>Disabling <b>session_storage</b> would allow JWT to not persist sessions even when no Authorization headers are passed, but would also remove the probability of sessions altogether.</li>
+    <li>Disabling <b>database_authenticatable</b> would make the Users not have a email/password login functionality, which defeats the purpose.</li>
+  </ol>
+</p>
+<p>
+  (BTW the code mentioned in <a href="https://medium.com/@brentkearney/json-web-token-jwt-and-html-logins-with-devise-and-ruby-on-rails-5-9d5e8195193d">this medium article</a> does not actually work if your session happens to persist from the same origin as the author did not disable session_storage.)
+  <br/>
+  After spending a few hours scouring the source code (sparing you the trial-and-error details), I managed to have a hybrid authentication system by monkeypatching Warden's Proxy class:
+  <pre>
+    <code>
+        module Warden
+          class Proxy
+            def user(argument = {})
+              ...
+              user = request.original_fullpath.starts_with?("/api/v1") ? nil : session_serializer.fetch(scope)
+              ...
+              end
+            end
+          end
+        end
+    </code>
+  </pre>
+</p>
+
+<p>
+  Doing this allowed Warden to bypass the session searching for API requests, therefore honoring the <b>Authorization: Bearer</b> tokens,
+  while also retaining the use of <b>CookieStore</b> for session management on the website!
+</p>
