@@ -26,7 +26,6 @@ html
       font-weight: normal
   body
     font-weight: 400
-    width: 100vw
     overflow-x: hidden
     .container
       overflow-x: hidden
@@ -54,7 +53,10 @@ html
       &.light
         font-weight: light
         color: $light-gray
-
+  ul, ol, li
+    width: 100%
+    @media (max-width: 80.0rem)
+      margin: 0
   i.image-caption
     display: block
     font-size: 0.75em
