@@ -1,22 +1,17 @@
 ---
 layout: default
 ---
-
-
 <h2 class="page-title">Projects</h2>
 {% for project in site.data.projects %}
   <div class="project">
-    <!-- {% if project.data-src %}
-        <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src={{ project.data-src }}>
-      {% endif %} -->
-    <h3>{{ project.title }}</h3>
-    {% if project.url %}
-    <a href={{ project.url }}>{{project.url }}</a>
-    {% endif %}
-    <div class="content">
+    <h3><a href={{ project.url }} target="blank">{{ project.title }}</a></h3>
+    {% if project.data-src %}
+        <img class="project__image" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src={{ project.data-src }}>
+      {% endif %}
+    <!-- <div class="content">
       {{ project.content }}
-    </div>
-    <div class="tags">
+    </div> -->
+    <div class="project__tags">
       {% for skill in project.skills %}
       <span class="skill tag">{{ skill }}</span>
       {% endfor %}
@@ -26,14 +21,11 @@ layout: default
 <hr/>
 {% for project in site.data.mini_projects %}
   <div class="mini-project">
-    <h3>{{ project.title }}</h3>
-    {% if project.url %}
-      <a href={{ project.url }}>{{project.url }}</a>
-    {% endif %}
+    <h3><a href={{ project.url }} target="blank">{{ project.title }}</a></h3>
     <div class="content">
       {{ project.content }}
     </div>
-    <div class="tags">
+    <div class="project__tags">
       {% for skill in project.skills %}
         <span class="skill tag">{{ skill }}</span>
       {% endfor %}

@@ -1,17 +1,21 @@
 <footer>
-  <a href="http://www.github.com/causztic" target="_blank"><img class="icon" src="/assets/github-icon.png"/></a>
-  <a href="https://www.linkedin.com/in/limyaojie" target="_blank"><img class="icon" src="/assets/linkedin-icon.png"/></a>
-  <a href="https://gitlab.com/causztic" target="_blank"><img class="icon" src="/assets/gitlab-icon.png"/></a>
-  <br/>
-  <p class="small">© {{ site.time | date: '%Y' }}.</p>
-  <p class="small light">Sassy Mr Jekyll</p>
+  <div class="links">
+    <a href="http://www.github.com/causztic" target="_blank"><img class="icon" src="/assets/github-icon.png" /></a>
+    <a href="https://www.linkedin.com/in/limyaojie" target="_blank"><img class="icon"
+        src="/assets/linkedin-icon.png" /></a>
+    <a href="https://gitlab.com/causztic" target="_blank"><img class="icon" src="/assets/gitlab-icon.png" /></a>
+  </div>
+  <div class="credits">
+    <small>© {{ site.time | date: '%Y' }} Sassy Mr Jekyll</small>
+  </div>
+
 </footer>
 <script>
   function init() {
     var imgDefer = document.getElementsByTagName('img');
-    for (var i=0; i<imgDefer.length; i++) {
-      if(imgDefer[i].getAttribute('data-src')) {
-        imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+    for (var i = 0; i < imgDefer.length; i++) {
+      if (imgDefer[i].getAttribute('data-src')) {
+        imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
       }
     }
   }
