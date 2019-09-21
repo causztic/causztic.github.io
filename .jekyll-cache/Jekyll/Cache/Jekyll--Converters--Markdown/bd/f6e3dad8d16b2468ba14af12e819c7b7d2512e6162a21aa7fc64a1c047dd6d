@@ -1,0 +1,15 @@
+I"><p>
+  So here's the deal: we wanted to create a shared authentication platform with Devise for both API and non-API (vanilla website) usage.
+  For the API, we needed a jwt implementation, so:
+</p>
+<ul>
+  <li><b>gem install devise-jwt</b></li>
+  <li>update <b>devise.rb</b> for devise-jwt. Basically just follow their README and update accordingly.</li>
+  <pre>
+    <code>
+      config.jwt do |jwt|
+        jwt.secret = Rails.application.credentials.secret_key_base
+        jwt.expiration_time = 1.year.to_i
+        jwt.request_formats = { user: [:json] }
+</code></pre></ul>
+:ET

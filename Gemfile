@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.0'
+ruby '2.6.0'
 
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
@@ -9,7 +9,7 @@ ruby '2.5.0'
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem 'jekyll', '>= 3.6.3'
+gem 'jekyll', '4'
 gem 'jekyll-paginate'
 gem 'jekyll-seo-tag'
 

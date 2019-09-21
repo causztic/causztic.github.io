@@ -3,18 +3,9 @@
 {% include head.html %}
 
 <body>
-  <div class="container">
-    <div class="row">
-      {% include mobile_navigation.html %}
-      <aside class="menu column">
-        {% include navigation.html %}
-        {% include footer.html %}
-      </aside>
-      <div class="content column">
-        {{ content }}
-      </div>
-    </div>
-  </div>
+  {% include navigation.html %}
+  {{ content }}
+  {% include footer.html %}
 </body>
 
 </html>

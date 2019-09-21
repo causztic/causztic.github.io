@@ -1,47 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include head.html %}
+  <body>
+    {% include navigation.html %}
+    <h1 class={% if page.title == '' %}untitled{% endif %}>{{ page.title }}</h1>
+    {% capture pageyear %}{{ page.date | date: '%Y' }}{% endcapture %}
+    {% capture siteyear %}{{ site.time | date: '%Y' }}{% endcapture %}
 
-<body>
-  <div class="container">
-    <div class="row">
-      {% include mobile_navigation.html %}
-      <aside class="menu column">
-        {% include navigation.html %}
-        {% include footer.html %}
-      </aside>
-      <div class="content column">
-        <article class="post">
-          <header>
-            <h1 class={% if page.title == '' %}untitled{% endif %}>{{ page.title }}</h1>
-            <h2 class="headline">
-              {% capture pageyear %}{{ page.date | date: '%Y' }}{% endcapture %}
-              {% capture siteyear %}{{ site.time | date: '%Y' }}{% endcapture %}
-
-              {% if pageyear < siteyear  %}
-                {{ page.date | date:"%B %-d, %Y" }}
-              {% else %}
-                {{ page.date | date:"%B %-d" }}
-              {% endif %}
-            </h2>
-          </header>
-          <section class="content">
-            {{content}}
-          </section>
-        </article>
-        {% if page.archive %}
-        <ul id="post-list" class="archive readmore">
-          <h3>Read more</h3>
-          {% for post in site.posts %}
-          <li>
-            <a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">{{ post.title }}<aside class="dates">{{ post.date | date:"%b %d" }}</aside></a>
-          </li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-</body>
-
+    {% if pageyear < siteyear  %}
+      {{ page.date | date:"%B %-d, %Y" }}
+    {% else %}
+      {{ page.date | date:"%B %-d" }}
+    {% endif %}
+    {% include footer.html %}
+    {% if page.archive %}
+      <h3>Read more</h3>
+      {% for post in site.posts %}
+        <a href="{{ post.url | remove_first: '/' }}">{{ post.title }}<aside class="dates">{{ post.date | date:"%b %d" }}</aside></a>
+      {% endfor %}
+    {% endif %}
+  </body>
 </html>
