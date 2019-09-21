@@ -1,7 +1,12 @@
-<div class="navigation">
+<nav class="navigation">
   <h1>{{site.author}}</h1>
   <p>{{site.description}}</p>
-  <a href="/about" class='menu-item {% if page.url == "/projects/" %}selected{% endif %}'> About </a>
-  <a href="/" class='menu-item {% if page.url == "/" %}selected{% endif %}'> Projects </a>
-  <a href="/posts" class='menu-item {% if page.url == "/posts/" %}selected{% endif %}'> Blog </a>
-</div>
+  <ul class="navigation__links">
+    <li>
+      <a href="/" class='{% if page.url == "/" %}selected{% endif %}'> Projects </a>
+    </li>
+    <li>
+      <a href="/posts" class='{% if page.url == "/posts/" %}selected{% endif %}'> Blog </a>
+    </li>
+  </ul>
+</nav>
