@@ -18,13 +18,12 @@ tags: ["code", "ruby"]
   <li>update <b>devise.rb</b> for devise-jwt. Basically just follow their README and update accordingly.</li>
   <code>
     config.jwt do |jwt|
-      jwt.secret = Rails.application.credentials.secret_key_base
-      jwt.expiration_time = 1.year.to_i
+      jwt.secret = Rails.application.credentials.jwt_key_base
+      jwt.expiration_time = 1.hour.to_i
       jwt.request_formats = { user: [:json] }
 
       jwt.dispatch_requests = [
-        ['POST', %r{^/api/v1/auth/sign_in$}],
-        ['GET', %r{^/api/v1/users/confirmation}],
+        ['POST', %r{^/api/v1/auth/sign_in$}]
       ]
       jwt.revocation_requests = [
         ['DELETE', %r{^/api/v1/auth/sign_out$}]
