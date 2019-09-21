@@ -18,7 +18,6 @@ email: limyaojie93@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Web Developer doing Ruby on Rails and Javascript stuff.
 
-baseurl: "/" # the subpath of your site, e.g. /blog
 url: http://causztic.com # the base hostname & protocol for your site
 github_username:  causztic
 
