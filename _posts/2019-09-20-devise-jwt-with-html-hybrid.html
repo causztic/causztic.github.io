@@ -44,7 +44,7 @@ tags: ["code", "ruby"]
     </code>
   </li>
   <li>
-    Update <b>Api::V1::SessionsController</b>. We also needed to return extra information on successful login, so we also overrode the <b>respond_with</b> method.
+    Update <b>Api::V1::SessionsController</b>. We needed to return extra information on successful login, so we overrode the <b>respond_with</b> method as well.
     <code>
       class Api::V1::SessionsController < Devise::SessionsController
         protect_from_forgery prepend: true
@@ -69,7 +69,7 @@ tags: ["code", "ruby"]
   </li>
 </ul>
 <p>
-  Here comes the ceveat!
+  Here comes the ceveat!<br/>
   <a href="https://github.com/waiting-for-dev/devise-jwt#session-storage-caveat">https://github.com/waiting-for-dev/devise-jwt#session-storage-caveat</a><br/>
   We had to either disable <b>session_storage</b> or <b>database_authenticatable</b>, which were not very feasible options if we were to also allow session-based logins for the website.
   <ol>
@@ -96,6 +96,6 @@ tags: ["code", "ruby"]
 </p>
 
 <p>
-  Doing this allowed Warden to bypass the session searching for API requests, therefore honoring the <b>Authorization: Bearer</b> tokens,
-  while also retaining the use of <b>CookieStore</b> for session management on the website!
+  Doing this allowed Warden to bypass the session searching for API requests, therefore honoring the Authorization: Bearer tokens,
+  while also retaining the use of CookieStore for session management on the website!
 </p>
