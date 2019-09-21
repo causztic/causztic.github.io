@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 {% include head.html %}
-  <body>
-    {% include navigation.html %}
-    <h1 class={% if page.title == '' %}untitled{% endif %}>{{ page.title }}</h1>
-    {% capture pageyear %}{{ page.date | date: '%Y' }}{% endcapture %}
-    {% capture siteyear %}{{ site.time | date: '%Y' }}{% endcapture %}
 
-    {% if pageyear < siteyear  %}
-      {{ page.date | date:"%B %-d, %Y" }}
-    {% else %}
-      {{ page.date | date:"%B %-d" }}
-    {% endif %}
+<body>
+  <div class="container posts">
+    {% include navigation.html %}
+    <article class="post">
+      <h1 class={% if page.title == '' %}untitled{% endif %}>{{ page.title }}</h1>
+      <aside class="date">
+        {% capture pageyear %}{{ page.date | date: '%Y' }}{% endcapture %}
+        {% capture siteyear %}{{ site.time | date: '%Y' }}{% endcapture %}
+
+        {% if pageyear < siteyear  %}
+          {{ page.date | date:"%B %-d, %Y" }}
+        {% else %}
+          {{ page.date | date:"%B %-d" }}
+        {% endif %}
+      </aside>
+      <div class="content">
+        {{ content }}
+      </div>
+      {% if page.archive %}
+        <h3>Read more</h3>
+        {% for post in site.posts %}
+          <a href="{{ post.url | remove_first: '/' }}">{{ post.title }}<aside class="dates">{{ post.date | date:"%b %d" }}</aside></a>
+        {% endfor %}
+      {% endif %}
+    </article>
     {% include footer.html %}
-    {% if page.archive %}
-      <h3>Read more</h3>
-      {% for post in site.posts %}
-        <a href="{{ post.url | remove_first: '/' }}">{{ post.title }}<aside class="dates">{{ post.date | date:"%b %d" }}</aside></a>
-      {% endfor %}
-    {% endif %}
-  </body>
+  </div>
+</body>
+
 </html>
