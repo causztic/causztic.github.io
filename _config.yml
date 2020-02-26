@@ -16,7 +16,7 @@
 name: Lim Yao Jie
 email: limyaojie93@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Web Developer doing Ruby on Rails and Javascript stuff.
+  Software Engineer doing Ruby on Rails and Javascript stuff. With some DevOps
 
 baseurl: '/'
 url: https://causztic.com # the base hostname & protocol for your site
