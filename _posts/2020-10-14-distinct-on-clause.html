@@ -27,7 +27,11 @@ tags: ["code", "rails"]
 </p>
 
 <p>
-  This meant that I needed to do a second order, so I tried something like:
+  This meant that I needed to do a second order - this is because Postgres
+  <a target="_blank" href="https://www.postgresql.org/docs/9.5/sql-select.html#SQL-DISTINCT">requires the leftmost <b>ORDER</b> clause</a> to be the one we are performing <b>DISTINCT ON</b> with.
+  <br/>
+  <br/>
+  So, I tried something like:
   <code>
     dms = DirectMessage.select('DISTINCT ON (sender_id) sender_id', :id, :sender_id, :message, :created_at)
                        .where(recipient: current_profile)
